@@ -5,6 +5,7 @@ import GeocodeResult from './GeocodeResult';
 import Map from './Map';
 
 import { geocode } from '../domain/Geocorder';
+import { searchHotelByLocation } from '../domain/HotelRepository';
 
 class App extends Component {
   constructor(props) {
@@ -33,6 +34,7 @@ class App extends Component {
         switch(status) {
           case 'OK' : {
             this.setState({ address, location });
+            return searchHotelByLocation(location);
             break;
           }
           case 'ZERO_RESULTS': {
@@ -43,6 +45,10 @@ class App extends Component {
             this.setErrorMessage('エラーが発生しました。');
           }
         }
+        return [];
+      })
+      .then((hotels) => {
+        this.setState({ hotels });
       })
       .catch((error) => {
         this.setErrorMessage('通信に失敗しました。');
