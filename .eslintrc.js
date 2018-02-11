@@ -1,6 +1,12 @@
 module.exports = {
   "extends": "airbnb",
-  "env" : {
+  "env": {
     "browser": true
+  },
+  "rules": {
+    "no-underscore-dangle": [
+      "error",
+      { "allow": ["__REDUX_DEVTOOLS_EXTENSION__"] }
+    ]
   }
 };

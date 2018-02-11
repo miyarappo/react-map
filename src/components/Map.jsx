@@ -21,7 +21,7 @@ const Map = ({ location }) =>  (
   />
 );
 
-Map.PropTypes = {
+Map.propTypes = {
   location: PropTypes.objectOf(PropTypes.number).isRequired,
 };
 

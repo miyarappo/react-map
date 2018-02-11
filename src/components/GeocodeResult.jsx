@@ -9,7 +9,7 @@ const GeocodeResult = ({ address, location}) => (
   </ul>
 );
 
-GeocodeResult.PropTypes = {
+GeocodeResult.propTypes = {
   address: PropTypes.string,
   location: PropTypes.objectOf(PropTypes.number).isRequired,
 };
